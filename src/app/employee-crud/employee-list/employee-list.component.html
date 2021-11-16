@@ -1,0 +1,27 @@
+
+   <div style=" width: 50%;margin: auto;margin-top: 100px;">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"  [(ngModel)]="query" id="listSearch">
+   </div>
+    
+ 
+
+    <table border="2" style="margin: auto; margin-top: 50px; width: 80%;">
+      <caption>Employee Info</caption>
+      <thead><tr class="card-title" style="text-align: center;">
+          <th>First Name</th><th>Last Name</th><th>Age</th><th>Department</th><th>Technologies known</th><th>Actions</th>
+      </tr></thead>
+      <tbody>
+          <tr *ngFor="let emp of emps | searchh :  query">
+              <td >{{emp.firstName}}</td>
+              <td>{{emp.lastName}}</td>
+              <td>{{emp.age}}</td>
+              <td>{{emp.department}}</td>
+              <td>{{emp.languages}}</td>
+              <td style="text-align: center;" ><a [routerLink]="['/employee-edit', emp.id]" class="btn btn-primary">Edit</a>
+                <button (click)="deleteEmployee(emp.id)" class="btn btn-danger">Delete</button></td>
+          </tr>
+      </tbody>
+      
+  </table>
+
+  

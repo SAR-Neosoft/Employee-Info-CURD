@@ -1,0 +1,66 @@
+<div style="margin-top: 100px;">
+    <div class="row">
+  
+      <div class="col-md-12">
+  
+        <div class="row register-form">
+          <div class="col-md-12">
+            <form class="form-horizontal" #f="ngForm" novalidate (ngSubmit)="f.form.valid && onSubmit()">
+           <input type="hidden" class="form-control"  required name="id" [(ngModel)]="emp.id"value="" />
+
+              <div class="form-group" >
+
+                <input type="text" class="form-control" #firstNamevalid="ngModel" required name="firstName" [(ngModel)]="emp.firstName"
+                  placeholder="First Name *" value="" />
+  
+                <div *ngIf="firstNamevalid.errors && (firstNamevalid.dirty || firstNamevalid.touched)">
+                  <p  class="text-danger" *ngIf="firstNamevalid.errors.required">First Name is required</p>
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <input type="text" class="form-control"  name="lastName" [(ngModel)]="emp.lastName" placeholder="Last Name"
+                  value="" />
+              </div>
+
+              <!-- =============================================================================== -->
+              <div class="form-group">
+                <input type="text" class="form-control"  name="age" [(ngModel)]="emp.age" placeholder="Age"
+                  value="" />
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="department" [(ngModel)]="emp.department" >
+                  <option class="hidden" selected disabled>Department</option>
+                  <option value="Java Full stack">Java Full stack</option>
+                  <option value="Microsoft dot net">Microsoft dot net</option>
+                  <option value="Android">Android</option>
+                  
+                </select>
+              </div>
+            <!-- =================================================================================== -->
+              <div class="form-group">
+                <select class="form-control" name="languages" [(ngModel)]="emp.languages" multiple>
+                  <option class="hidden" selected disabled>Technologies Know?</option>
+                  <option value="Mysql">Mysql</option>
+                  <option value="Java">Java</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Html">Html</option>
+                <option value="Css">Css</option>
+                <option value="DotNet">Dot net</option>
+                <option value="Mangodb">Mangodb</option>
+                  
+                </select>
+              </div>
+              <input type="submit" class="btn btn-success" value="Update" />
+            </form>
+          </div>
+  
+        </div>
+  
+  
+  
+      </div>
+  
+    </div>
+  
+  </div>
